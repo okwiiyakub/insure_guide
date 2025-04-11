@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import torch
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 # Load GPT-2 model and tokenizer
 model_name = "./trained_model"  # You can change to 'gpt2-medium', 'gpt2-large', etc.
 tokenizer = GPT2Tokenizer.from_pretrained(model_name)
